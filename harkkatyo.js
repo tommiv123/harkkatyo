@@ -1,5 +1,7 @@
+//Tommi Vapaakoski 0510195
+//20.12.2018
 
-//käytetään use-strictiä globaalisti
+//using use-strict globally
 'use strict';
 
 //Creating a list of tasks with Vue
