@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!--get vue and materialize-libraries-->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!--get materialize icons-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+
+  <title>Things to do</title>
+</head>
+
+<!--visuals-->
+<body style="background-color:grey;">
+
+  <!--create list of items-->
+  <div id="itemsList">
+    <h1 class="center" style="font-family:verdana;">Things to do</h1>
+<div class="center">
+    <div class="panel panel-default">
+
+<!--instruction-panel-->
+  <div class="card-panel light-blue lighten-2 z-depth-1">
+    <div class="row valign-wrapper">
+
+      <div class="col s10">
+        <span class="black-text">
+          Welcome to a task manager. Here you can add tasks you that you have to do, and delete those that you have already finished.
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+      <!--adding a submit button-->
+      <form v-on:submit='addItem'>
+        <div class="input-field col s6">
+          <input id="icon_prefix" type="text" class='center' v-model='items.name' maxlength="30" size="4">
+        </div>
+
+        <!--possibility to add new tasks-->
+        <input type="submit" value='Add task' class='waves-effect light-blue btn-small'>
+      </form>
+    </div>
+
+    <!--create titles for possible operations,-->
+    <table class="centered striped">
+      <thead>
+        <th>Task</th>
+        <th>Delete from list</th>
+      </thead>
+
+      <!--display tasks in list-->
+      <tbody>
+        <tr v-for='task in items'>
+          <td><span>{{ task.name }}</span></td>
+          <td><a class="waves-effect light-blue btn-small" v-on:click="deleteTask(task)"><i class="material-icons left">backspace</i>Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<!--connect to javascript file-->
+<script src="harkkatyo.js"></script>
+</body>
+</html>
